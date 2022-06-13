@@ -13,7 +13,7 @@ It contains 4 steps:
 
 
 ## How to use it:
-All you need to do is to feed the MRI image (.nii) path and its corresponding mask (.nrrd) path into the process function, then the program will produce the output image(.nii) and mask(.nrrd).
+All you need to do is to feed the MRI image (.nii) path, its corresponding mask (.nrrd) path, saved image path and saved mask path into the process function, then the program will produce the output image(.nii) and mask(.nrrd) as you desire.
 
 ## Notice:
 1. The mask you feed must be the binary mask, it means that there are only two kinds of value (0. and 1.) are acceptable, otherwise in the N4 algorithm stage, it will cause some problem.
