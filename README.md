@@ -18,6 +18,11 @@ All you need to do is to feed the MRI image (.nii) path, its corresponding mask 
 ## Notice:
 1. The mask you feed must be the binary mask, it means that there are only two kinds of value (0. and 1.) are acceptable, otherwise in the N4 algorithm stage, it will cause some problem.
 2. In resampling stage, the shape of the image and mask will both be changed, so don't use the original mask on the preprocessed imgae, theny are not matched.
+3. There might be some intermediate files due to the conversion between different libraries.
+
+## Prerequisites
+Need to install:
+Dipy, SimpleITK, numpy, nibabel, nilearn.
 
 That's all, feel free to use it!
 If there is anything wrong with it, please let me know.
