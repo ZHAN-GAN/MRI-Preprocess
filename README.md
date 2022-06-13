@@ -16,8 +16,8 @@ It contains 4 steps:
 All you need to do is to feed the MRI image (.nii) path, its corresponding mask (.nrrd) path, saved image path and saved mask path into the process function, then the program will produce the output image(.nii) and mask(.nrrd) as you desire.
 
 ## Notice:
-1. The mask you feed must be the binary mask, it means that there are only two kinds of value (0. and 1.) are acceptable, otherwise in the N4 algorithm stage, it will cause some problem.
-2. In resampling stage, the shape of the image and mask will both be changed, so don't use the original mask on the preprocessed imgae, theny are not matched.
+1. The mask you feed must be the binary mask, it means that there are only two kinds of value (0. and 1.) are acceptable, otherwise it will cause some problem in the N4 algorithm stage.
+2. In resampling stage, the shape of the image and mask will both be changed, so don't use the original mask on the preprocessed imgae, they are not matched.
 3. There might be some intermediate files due to the conversion between different libraries.
 4. It might take 3 to 5 minutes to process one sample, in which denoise stage and bias field correction take most of time.
 
