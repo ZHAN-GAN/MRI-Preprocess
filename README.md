@@ -1,7 +1,7 @@
 # MRI-Preprocess
 
 ## Pipeline:
-This is a MRI preprocessing pipeline for deep learning, which mainly took advices from chapter [5](https://www.researchgate.net/publication/309640957_MRI_preprocessing) in Imaging Biomarkers.
+This is a MRI preprocessing pipeline for deep learning, which mainly took advices from [chapter 5](https://www.researchgate.net/publication/309640957_MRI_preprocessing) in Imaging Biomarkers.
 
 It contains 4 steps:
 1. Denoise, we use the [Non-Local Means algorithm](https://dipy.org/documentation/1.5.0/examples_built/denoise_nlmeans/#example-denoise-nlmeans) to remove the noise from images.
