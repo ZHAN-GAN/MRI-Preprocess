@@ -27,6 +27,11 @@ def process(image_path, mask_path, save_image_path, save_mask_path):
     # N4 bias field correction
     image_file = sitk.ReadImage('temp_image.nii', sitk.sitkFloat32)
     mask_file = sitk.ReadImage(mask_path, sitk.sitkUInt8)
+    
+    # without this, might cause errors in some files
+    mask_file.SetOrigin(image_file.GetOrigin())
+    mask_file.SetSpacing(image_file.GetSpacing())
+    mask_file.SetDirection(image_file.GetDirection())
 
     corrector = sitk.N4BiasFieldCorrectionImageFilter()
     correct_image = corrector.Execute(image_file, mask_file)
