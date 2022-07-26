@@ -10,15 +10,15 @@ It contains 5 steps:
 4. Standardlization, we use [nyul histogram matching algorithm](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.204.102&rep=rep1&type=pdf) to correct the scanner-dependent intensity variations
 5. Normalization, we use [z-score algorithm](https://en.wikipedia.org/wiki/Standard_score) to do normalization sample by sample. Specifically, we calculate the mean value and std value from each sample data, and then every voxel value of this sample will subtract its mean value, divide its std value to obtain its normalized data.
 
-<img src="https://user-images.githubusercontent.com/107039598/180916851-f35f07e0-551e-4f86-9613-72acb5a48738.png" width="60%" height="60%">
+<img src="https://user-images.githubusercontent.com/107039598/180920498-d3f6760b-e77a-4e6a-aa89-795a12591d93.png" width="60%" height="60%">
 
 
 
 ## How to use it: 
 It depends on your task.
-1. For ROI task, we recommend the process in roi_process.py, it contains 4 steps: Denoise, Bias field correction, Resampling and Normalization. All you need to do is to feed the MRI image (.nii) path, its corresponding mask (.nrrd) path, saved image path and saved mask path into the process function, then the program will produce the output image(.nii) and mask(.nrrd) as you desire.
+1. For the Whole-slide task (it means you are not using part of the slice area), we recommend the process in whole-slide directory, it contains all the 5 steps above, but you have to be careful when you use it. Suppose you want to try the 5-fold cross validation, you have to prepare the training set and testing set of each fold in advance, cause the nyul algorithm have to train a histogram template based on the traning set. In detail, run the pre_nyul.py at first, then arrange the dataset in K-fold corss valiation way, after that, run the nyul_standardization.py to obtain the normalized MRI of K-fold.   
 
-2. For Whole-slide task, we recommend the process in whole-slide.
+1. For the ROI task, we recommend you try both algorithms in whole-slide directory and roi directory, and use the better one. The process in roi_process.py performs better in my task, but I am not sure whether it will perform better on yours, it contains 4 steps: Denoise, Bias field correction, Resampling and Normalization. All you need to do is to feed the MRI image (.nii) path, its corresponding mask (.nrrd) path, saved image path and saved mask path into the process function, then the program will produce the output image(.nii) and mask(.nrrd) as you desire.
 
 ## Notice:
 1. The mask you feed must be the binary mask, it means that there are only two kinds of value (0. and 1.) are acceptable, otherwise it will cause some problem in the N4 algorithm stage.
