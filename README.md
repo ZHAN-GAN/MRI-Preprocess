@@ -10,7 +10,8 @@ It contains 5 steps:
 4. Standardlization, we use [nyul histogram matching algorithm](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.204.102&rep=rep1&type=pdf) to correct the scanner-dependent intensity variations
 5. Normalization, we use [z-score algorithm](https://en.wikipedia.org/wiki/Standard_score) to do normalization sample by sample. Specifically, we calculate the mean value and std value from each sample data, and then every voxel value of this sample will subtract its mean value, divide its std value to obtain its normalized data.
 
-<img src="https://user-images.githubusercontent.com/107039598/173266497-64f18cf1-bf8d-4e23-8f4d-56bd86b7b35b.png" width="60%" height="60%">
+<img src="https://user-images.githubusercontent.com/107039598/180916851-f35f07e0-551e-4f86-9613-72acb5a48738.png" width="60%" height="60%">
+
 
 
 ## How to use it: 
