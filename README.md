@@ -7,7 +7,7 @@ It contains 5 steps:
 1. Denoise, we use the [Non-Local Means algorithm](https://dipy.org/documentation/1.5.0/examples_built/denoise_nlmeans/#example-denoise-nlmeans) to remove the noise from images.
 2. Bias field correction, we use [N4 algorithm](https://simpleitk.readthedocs.io/en/master/link_N4BiasFieldCorrection_docs.html) to correcting low frequency intensity non-uniformity present in MRI image data.
 3. Resampling, we use the method described in this [blog](https://www.kaggle.com/code/mechaman/resizing-reshaping-and-resampling-nifti-files/notebook) to make voxel spcaing the same across samples, such that we could extract generalized features in the feature extraction stage.
-4. Standardlization, we use [nyul histogram matching algorithm](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.204.102&rep=rep1&type=pdf) to correct the scanner-dependent intensity variations
+4. Standardization, we use [nyul histogram matching algorithm](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.204.102&rep=rep1&type=pdf) to correct the scanner-dependent intensity variations, implementation of it refers to this [github](https://github.com/sergivalverde/MRI_intensity_normalization). 
 5. Normalization, we use [z-score algorithm](https://en.wikipedia.org/wiki/Standard_score) to do normalization sample by sample. Specifically, we calculate the mean value and std value from each sample data, and then every voxel value of this sample will subtract its mean value, divide its std value to obtain its normalized data.
 
 <img src="https://user-images.githubusercontent.com/107039598/180920498-d3f6760b-e77a-4e6a-aa89-795a12591d93.png" width="60%" height="60%">
