@@ -28,6 +28,10 @@ def process(image_path, mask_path, save_image_path, save_mask_path):
     image_file = sitk.ReadImage('temp_image.nii', sitk.sitkFloat32)
     mask_file = sitk.ReadImage(mask_path, sitk.sitkUInt8)
     
+    # in case you are using 3D data or doing the registration
+    if image_file.GetDirection() != (1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0):
+        image_file.SetDirection((1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0))
+    
     # without this, might cause errors in some files
     mask_file.SetOrigin(image_file.GetOrigin())
     mask_file.SetSpacing(image_file.GetSpacing())
