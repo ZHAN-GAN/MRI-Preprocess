@@ -12,7 +12,7 @@ e.g.
 image_path='/root/mri/raw/image/demo_image.nii'
 mask_path='/root/mri/raw/image/demo_image.nrrd'
 save_image_path='/root/mri/preprocess/image/demo_image.nii'
-save_mask_path='/root/mri/preprocess/image/demo_image.nrrd'
+save_mask_path='/root/mri/preprocess/image/demo_image.nii'
 
 '''
 
@@ -50,7 +50,7 @@ def process(image_path, mask_path, save_image_path, save_mask_path):
 
     mask_file = nib.load('temp_mask.nii')
     new_file = resample_img(mask_file, target_affine=np.eye(3), interpolation='nearest')
-    nib.save(new_file, save_mask_path)
+    nib.save(new_file, save_mask_path) # mask saved as nii format will be better dueb to nibabel library, for the next process, you can convert it back with simpleitk.
 
 
 process(image_path='BH_Ax_LAVA+C_4_0_2_axial_PV.nii',
