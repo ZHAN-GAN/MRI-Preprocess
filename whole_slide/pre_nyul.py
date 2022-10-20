@@ -56,4 +56,4 @@ def process(image_path, mask_path, save_image_path, save_mask_path):
 process(image_path='BH_Ax_LAVA+C_4_0_2_axial_PV.nii',
         mask_path='BH_Ax_LAVA+C_4_0_2_axial_PV.nrrd',
         save_image_path='image.nii',
-        save_mask_path='mask.nrrd')
+        save_mask_path='mask.nii')
