@@ -28,7 +28,7 @@ It depends on your task.
 
 ## Prerequisites:
 Need to install:
-Dipy, SimpleITK=2.0.2, numpy, nibabel, nilearn.
+Python=3.6, Dipy=0.15.0, SimpleITK=2.0.2, Numpy=1.19.2, Nibabel=3.2.2, Nilearn=0.9.1.
 
 That's all, feel free to use it!
 If there is anything wrong with it, please let me know.
