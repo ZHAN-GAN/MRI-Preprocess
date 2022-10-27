@@ -89,9 +89,8 @@ def normalization(save_nyul_path, save_norm_path):
             temp_train_mask_path = save_nyul_path + str(i) + '/' + pn + '/train/mask/'
             train_filenames = os.listdir(temp_train_image_path)
             for fn in train_filenames:
-                keypart = fn.split('_')[0] + '_'+fn.split('_')[1]+ '_'+fn.split('_')[2]+ '_mask'
                 image = sitk.ReadImage(temp_train_image_path+fn, sitk.sitkFloat32)
-                mask = sitk.ReadImage(temp_train_mask_path+keypart+'.nrrd', sitk.sitkUInt8)
+                mask = sitk.ReadImage(temp_train_mask_path+fn, sitk.sitkUInt8)
 
                 image_array = sitk.GetArrayFromImage(image)
 
@@ -114,16 +113,15 @@ def normalization(save_nyul_path, save_norm_path):
                     os.makedirs(fold_save_norm_mask_path)
 
                 sitk.WriteImage(new_image, fold_save_norm_image_path+fn)
-                sitk.WriteImage(mask, fold_save_norm_mask_path+keypart+'.nrrd')
+                sitk.WriteImage(mask, fold_save_norm_mask_path+fn)
 
             # test
             temp_test_image_path = save_nyul_path + str(i) + '/' + pn + '/test/image/'
             temp_test_mask_path = save_nyul_path + str(i) + '/' + pn + '/test/mask/'
             test_filenames = os.listdir(temp_test_image_path)
             for fn in test_filenames:
-                keypart = fn.split('_')[0] + '_'+fn.split('_')[1]+ '_'+fn.split('_')[2]+ '_mask'
                 image = sitk.ReadImage(temp_test_image_path + fn, sitk.sitkFloat32)
-                mask = sitk.ReadImage(temp_test_mask_path + keypart + '.nrrd', sitk.sitkUInt8)
+                mask = sitk.ReadImage(temp_test_mask_path + fn, sitk.sitkUInt8)
 
                 image_array = sitk.GetArrayFromImage(image)
 
@@ -146,7 +144,7 @@ def normalization(save_nyul_path, save_norm_path):
                     os.makedirs(fold_save_norm_mask_path)
 
                 sitk.WriteImage(new_image, fold_save_norm_image_path + fn)
-                sitk.WriteImage(mask, fold_save_norm_mask_path + keypart + '.nrrd')
+                sitk.WriteImage(mask, fold_save_norm_mask_path + fn)
 
 if __name__ == '__main__':
 
